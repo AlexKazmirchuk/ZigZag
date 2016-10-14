@@ -23,6 +23,10 @@ public class GameController {
         ball.draw(canvas);
     }
 
+    public void changeBallDirection(){
+        ball.changeDirection();
+    }
+
     private void drawGrid(Canvas canvas){
         canvas.drawColor(Color.GREEN);
         Log.d("myLog",canvas.getWidth() + " " + canvas.getHeight()); //480x800
