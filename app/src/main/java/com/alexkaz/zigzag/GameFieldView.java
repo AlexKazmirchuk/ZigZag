@@ -31,7 +31,7 @@ public class GameFieldView extends View implements View.OnTouchListener {
         myHandler = new MyHandler(this);
         gameController = new GameController();
         setOnTouchListener(this);
-        startInvalidating(context);
+//        startInvalidating(context);
     }
 
     private void startInvalidating(Context context){
