@@ -63,9 +63,16 @@ public class Floor {
         elemCount = elementList.size();
     }
 
+    private void move(){
+        for (FloorElement element : elementList) {
+            element.setY(element.getY() + 2);
+        }
+    }
+
     public void draw(Canvas canvas){
         for (int i = elementList.size()-1; i >= 0; i--) {
             elementList.get(i).draw(canvas);
         }
+        move();
     }
 }

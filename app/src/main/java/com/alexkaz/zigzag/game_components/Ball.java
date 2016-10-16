@@ -19,7 +19,7 @@ public class Ball {
         y = 700;
         width = 40;
         height = 40;
-        radius = 20;
+        radius = 10;
         paint = new Paint();
         paint.setColor(Color.RED);
     }
@@ -29,7 +29,7 @@ public class Ball {
         move();
     }
 
-    public void move(){
+    private void move(){
         if (direction){
             //move to right
             x = x + 4;

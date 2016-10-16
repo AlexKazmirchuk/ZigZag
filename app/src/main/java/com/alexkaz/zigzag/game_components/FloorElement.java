@@ -39,6 +39,14 @@ public class FloorElement {
         leftSidePath = new Path();
         rightSidePath = new Path();
 
+        initPaths();
+    }
+
+    private void initPaths(){
+        topSidePath.reset();
+        leftSidePath.reset();
+        rightSidePath.reset();
+
         topSidePath.moveTo(x, y + height/2);
         topSidePath.lineTo(x + width/2, y);
         topSidePath.lineTo(x + width, y + height/2);
@@ -74,5 +82,14 @@ public class FloorElement {
     private void drawRightSide(Canvas canvas){
         paint.setColor(rightColor);
         canvas.drawPath(rightSidePath,paint);
+    }
+
+    public void setY(int y) {
+        this.y = y;
+        initPaths();
+    }
+
+    public int getY() {
+        return y;
     }
 }
