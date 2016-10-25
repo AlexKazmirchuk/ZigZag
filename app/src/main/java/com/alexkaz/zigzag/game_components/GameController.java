@@ -20,7 +20,9 @@ public class GameController {
         drawGrid(canvas);
         bgPainter.draw(canvas);
         floor.draw(canvas);
+        floor.move();
         ball.draw(canvas);
+        ball.move();
     }
 
     public void changeBallDirection(){

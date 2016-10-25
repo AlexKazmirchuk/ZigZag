@@ -15,6 +15,9 @@ public class Floor {
     private int translationY;
     private int elemCount;
     private int lastX;
+    private int leftScreenBorder;
+    private int rightScreenBorder;
+
     private int leftBorder;
     private int rightBorder;
 
@@ -28,8 +31,8 @@ public class Floor {
         translationY = 20;
         elemCount = 0;
         lastX = x;
-        leftBorder = 0;
-        rightBorder = 480;
+        leftScreenBorder = 0;
+        rightScreenBorder = 480;
 
         buildRandomFloor();
     }
@@ -44,7 +47,7 @@ public class Floor {
     public void addFloorElem(){
         int toLeftOrRight = rand.nextInt(100);
         if (toLeftOrRight >= 50){
-            if (lastX - translationX > leftBorder){
+            if (lastX - translationX > leftScreenBorder){
                 elementList.add(new FloorElement(lastX - translationX, y - elemCount*translationY));
                 lastX = lastX - translationX;
             } else {
@@ -52,7 +55,7 @@ public class Floor {
                 lastX = lastX + translationX;
             }
         } else {
-            if (lastX + translationX*2 < rightBorder){
+            if (lastX + translationX*2 < rightScreenBorder){
                 elementList.add(new FloorElement(lastX + translationX, y - elemCount*translationY));
                 lastX = lastX + translationX;
             } else {
@@ -63,7 +66,7 @@ public class Floor {
         elemCount = elementList.size();
     }
 
-    private void move(){
+    public void move(){
         for (FloorElement element : elementList) {
             element.setY(element.getY() + 2);
         }
@@ -73,6 +76,5 @@ public class Floor {
         for (int i = elementList.size()-1; i >= 0; i--) {
             elementList.get(i).draw(canvas);
         }
-        move();
     }
 }

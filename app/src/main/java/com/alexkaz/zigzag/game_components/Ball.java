@@ -26,10 +26,9 @@ public class Ball {
 
     public void draw(Canvas canvas){
         canvas.drawCircle(x,y,radius,paint);
-        move();
     }
 
-    private void move(){
+    public void move(){
         if (direction){
             //move to right
             x = x + 4;
