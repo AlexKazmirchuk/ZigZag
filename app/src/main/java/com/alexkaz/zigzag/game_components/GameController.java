@@ -23,6 +23,18 @@ public class GameController {
         floor.move();
         ball.draw(canvas);
         ball.move();
+        ////////////////////
+        // TODO code for debugging
+        Paint txtPaint = new Paint();
+        txtPaint.setTextSize(50);
+        if (floor.isPointInBounds(ball.getX(),ball.getY())){
+            txtPaint.setColor(Color.GREEN);
+            canvas.drawText("В межах", 50,50,txtPaint);
+        } else {
+            txtPaint.setColor(Color.RED);
+            canvas.drawText("За межами", 50,50,txtPaint);
+        }
+        ////////////////////
     }
 
     public void changeBallDirection(){

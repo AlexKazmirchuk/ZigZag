@@ -41,4 +41,12 @@ public class Ball {
     public void changeDirection(){
         direction = !direction;
     }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }

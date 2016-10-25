@@ -77,4 +77,14 @@ public class Floor {
             elementList.get(i).draw(canvas);
         }
     }
+
+    public boolean isPointInBounds(int pointX,int pointY){
+        // TODO оптимізувати цей метод у майбутньому
+        for (FloorElement element : elementList) {
+            if (element.isPointInBounds(pointX,pointY)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

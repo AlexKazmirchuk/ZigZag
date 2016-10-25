@@ -92,4 +92,21 @@ public class FloorElement {
     public int getY() {
         return y;
     }
+
+    public boolean isPointInBounds(int pointX, int pointY){
+        // TODO 1 знайти діагоналі ромба
+        double AC = Math.sqrt(Math.pow((x + width) - x,2) +  Math.pow((y + height /2) - (y + height /2),2));
+        double BD = Math.sqrt(Math.pow((x + width /2) - (x + width /2),2) +  Math.pow((y + height) - y,2));
+        // TODO 2 знайти площу ромба
+        double S = (AC*BD)/2;
+        // TODO 3 знайти чотири площі трикутників
+        double sTr1 = Math.abs(((x-pointX)*(y-pointY)-((x + width /2)-pointX)*((y + height /2)-pointY))/2);   // ABQ
+        double sTr2 = Math.abs(((x-(x + width /2))*(pointY-(y + height))-(pointX-(x + width /2))*((y + height /2)-(y + height)))/2);   // AQD
+        double sTr3 = Math.abs((((x + width /2)-pointX)*((y + height /2)-pointY)-((x + width)-pointX)*(y-pointY))/2);   // BCQ
+        double sTr4 = Math.abs((((x + width /2)-pointX)*((y + height /2)-pointY)-((x + width)-pointX)*((y + height)-pointY))/2);   // DCQ
+        // TODO 4 порівняти результат
+        double result = (sTr1 + sTr2 + sTr3 + sTr4) - S;
+
+        return result <= 100 && result >= 0;
+    }
 }
