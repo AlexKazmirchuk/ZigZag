@@ -18,8 +18,9 @@ public class Floor {
     private int leftScreenBorder;
     private int rightScreenBorder;
 
-    private int leftBorder;
-    private int rightBorder;
+    private int period;
+
+
 
     public Floor() {
         elementList = new ArrayList<>();
@@ -70,6 +71,7 @@ public class Floor {
         for (FloorElement element : elementList) {
             element.setY(element.getY() + 2);
         }
+//        makeFloor();
     }
 
     public void draw(Canvas canvas){
@@ -86,5 +88,15 @@ public class Floor {
             }
         }
         return false;
+    }
+
+    private void makeFloor(){
+        if (period <= 40){
+            period = period + 2;
+        } else {
+            elementList.remove(0);
+            addFloorElem();
+            period = 0;
+        }
     }
 }
